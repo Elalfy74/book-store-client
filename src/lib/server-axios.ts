@@ -4,12 +4,11 @@ import axios from 'axios';
 import { cookies } from 'next/headers';
 
 const instance = axios.create({
-  baseURL: 'http://localhost:4000/api/',
+  baseURL: process.env.NEXT_PUBLIC_BACKEND_URL,
 });
 
 instance.interceptors.request.use((request) => {
   const allCookies = cookies().getAll();
-
   let sentCookies = ``;
 
   allCookies.forEach((cookie) => {
