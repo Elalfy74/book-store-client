@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
-import type { ISession } from "@/types";
-import { useSession } from "./session.store";
+import type { CurrentUser } from '@/types';
+import { useSession } from './current-user.store';
 
-export const SetSession = ({ session }: { session: ISession | null }) => {
+export const SetSession = ({ session }: { session: CurrentUser | null }) => {
   const loginUser = useSession((state) => state.loginUser);
 
   useEffect(() => {

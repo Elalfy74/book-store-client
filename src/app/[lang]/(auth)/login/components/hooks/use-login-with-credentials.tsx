@@ -1,10 +1,10 @@
-"user client";
+'user client';
 
-import { useMutation } from "@tanstack/react-query";
+import { useMutation } from '@tanstack/react-query';
 
-import { useSession } from "@/store/client/session.store";
+import { useSession } from '@/store/client/current-user.store';
 
-import { loginWithCredentials } from "@/services/client/auth";
+import { loginWithCredentials } from '@/services/client/auth';
 
 export const useLoginWithCredentials = () => {
   const loginUser = useSession((state) => state.loginUser);

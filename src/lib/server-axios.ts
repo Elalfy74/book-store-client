@@ -1,13 +1,13 @@
-"use server";
+'use server';
 
-import axios from "axios";
-import { cookies } from "next/headers";
+import axios from 'axios';
+import { cookies } from 'next/headers';
 
 const instance = axios.create({
-  baseURL: "http://localhost:4000/api/",
+  baseURL: 'http://localhost:4000/api/',
 });
 
-instance.interceptors.request.use(async (request) => {
+instance.interceptors.request.use((request) => {
   const allCookies = cookies().getAll();
 
   let sentCookies = ``;
@@ -16,7 +16,7 @@ instance.interceptors.request.use(async (request) => {
     sentCookies += `${cookie.name}=${cookie.value};`;
   });
 
-  request.headers.set("Cookie", sentCookies);
+  request.headers.set('Cookie', sentCookies);
 
   return request;
 });

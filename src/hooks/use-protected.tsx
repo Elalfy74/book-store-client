@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
-import { useSession } from "@/store/client/session.store";
+import { useSession } from '@/store/client/current-user.store';
 
-import { useLocale } from "./use-locale";
+import { useLocale } from './use-locale';
 
 export const useProtected = (requireSession: boolean, path: string) => {
-  const session = useSession((state) => state.session);
+  const session = useSession((state) => state.currentUser);
   const { locale } = useLocale();
   const { push } = useRouter();
 

@@ -1,16 +1,17 @@
-import { AxiosError } from "axios";
+import { AxiosError } from 'axios';
 
-import type { ISession } from "@/types";
-import { serverAxios } from "@/lib/server-axios";
+import type { CurrentUser } from '@/types';
+import { serverAxios } from '@/lib/server-axios';
 
-export const getServerSession = async () => {
+export const getCurrentUser = async () => {
   try {
-    const { data } = await serverAxios.get<ISession>("auth/session");
+    const { data } = await serverAxios.get<CurrentUser>('auth/current-user');
 
+    console.log(data);
     return data;
   } catch (error) {
     const err = error as AxiosError;
-    console.error(err.message);
+    console.log(err.message);
     return null;
   }
 };

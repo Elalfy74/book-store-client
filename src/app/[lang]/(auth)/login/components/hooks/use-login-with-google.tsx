@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useMutation } from "@tanstack/react-query";
+import { useMutation } from '@tanstack/react-query';
 
-import { useSession } from "@/store/client/session.store";
+import { useSession } from '@/store/client/current-user.store';
 
-import { loginWithGoogle } from "@/services/client/auth";
+import { loginWithGoogle } from '@/services/client/auth';
 
 export const useLoginWithGoogle = () => {
   const loginUser = useSession((state) => state.loginUser);

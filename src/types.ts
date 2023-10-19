@@ -1,6 +1,6 @@
-import type { Locale } from "@/i18n.config";
+import type { Locale } from '@/i18n.config';
 
-export interface ISession {
+export interface CurrentUser {
   name: string;
   email: string;
   avatar: string;
