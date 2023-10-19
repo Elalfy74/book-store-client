@@ -8,12 +8,12 @@ import { theme } from '@/theme';
 import { cairo } from '@/font';
 
 import { type Locale, i18n } from '@/i18n.config';
-import { getCurrentUser } from '@/services/actions/auth.actions';
+import { getCurrentUser } from '@/actions/auth.actions';
 import { localeStore } from '@/store/server/locale.store';
 
 import { QueryProvider } from '@/layouts/query-provider';
-import { SetSession } from '@/store/client/set-session';
 import { Header } from '@/layouts/header/header';
+import { SetClientUser } from '@/store/client/set-client-user';
 
 export const metadata: Metadata = {
   title: 'My Books',
@@ -41,7 +41,7 @@ export default async function RootLayout(props: RootLayoutProps) {
 
   localeStore.data = lang;
 
-  const user = await getCurrentUser();
+  const currentUser = await getCurrentUser();
 
   return (
     <html lang={lang} dir={lang === 'en' ? 'ltr' : 'rtl'}>
@@ -53,7 +53,7 @@ export default async function RootLayout(props: RootLayoutProps) {
           <QueryProvider>
             <Header lang={lang} />
             {children}
-            <SetSession session={user} />
+            <SetClientUser currentUser={currentUser} />
           </QueryProvider>
         </MantineProvider>
       </body>

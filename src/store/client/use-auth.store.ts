@@ -3,13 +3,13 @@ import { mountStoreDevtool } from 'simple-zustand-devtools';
 
 import type { CurrentUser } from '@/types';
 
-interface SessionState {
+interface AuthState {
   currentUser: CurrentUser | null;
   loginUser: (currentUser: CurrentUser) => void;
   logoutUser: () => void;
 }
 
-export const useSession = create<SessionState>((set) => ({
+export const useAuth = create<AuthState>((set) => ({
   currentUser: null,
 
   loginUser: (currentUser) => set({ currentUser: currentUser }),
@@ -17,5 +17,5 @@ export const useSession = create<SessionState>((set) => ({
 }));
 
 if (process.env.NODE_ENV === 'development') {
-  mountStoreDevtool('currentUser', useSession);
+  mountStoreDevtool('currentUser', useAuth);
 }

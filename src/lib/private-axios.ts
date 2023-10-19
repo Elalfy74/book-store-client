@@ -20,4 +20,4 @@ instance.interceptors.request.use((request) => {
   return request;
 });
 
-export const serverAxios = instance;
+export const privateServerAxios = instance;

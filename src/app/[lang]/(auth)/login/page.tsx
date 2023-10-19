@@ -1,12 +1,12 @@
-import Link from "next/link";
-import { Title } from "@mantine/core";
+import Link from 'next/link';
+import { Title } from '@mantine/core';
 
-import type { PageBaseProps } from "@/types";
+import type { PageBaseProps } from '@/types';
 
-import { getDictionary } from "@/lib/dictionary";
-import { loginDicStore } from "@/store/server/dictionaries.store";
+import { getDictionary } from '@/lib/dictionary';
+import { loginDicStore } from '@/store/server/dictionaries.store';
 
-import { LoginFrom } from "./components/login-form";
+import { LoginFrom } from './components/login-form';
 
 export default async function LoginPage({ params: { lang } }: PageBaseProps) {
   loginDicStore.data = await getDictionary(lang).login();

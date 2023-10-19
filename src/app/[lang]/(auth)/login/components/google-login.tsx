@@ -1,19 +1,19 @@
-"use client";
+'use client';
 
-import { Button } from "@mantine/core";
-import { GoogleOAuthProvider, useGoogleLogin } from "@react-oauth/google";
+import { Button } from '@mantine/core';
+import { GoogleOAuthProvider, useGoogleLogin } from '@react-oauth/google';
 
-import { useLoginWithGoogle } from "./hooks/use-login-with-google";
+import { useLoginWithGoogle } from './hooks/use-login-with-google';
 
 const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!;
 
-function GoogleIcon(props: React.ComponentPropsWithoutRef<"svg">) {
+function GoogleIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid"
       viewBox="0 0 256 262"
-      style={{ width: "0.9rem", height: "0.9rem" }}
+      style={{ width: '0.9rem', height: '0.9rem' }}
       {...props}
     >
       <path

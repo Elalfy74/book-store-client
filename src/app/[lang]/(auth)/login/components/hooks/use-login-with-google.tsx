@@ -2,17 +2,16 @@
 
 import { useMutation } from '@tanstack/react-query';
 
-import { useSession } from '@/store/client/current-user.store';
-
-import { loginWithGoogle } from '@/services/client/auth';
+import { useAuth } from '@/store/client/use-auth.store';
+import { loginWithGoogle } from '@/actions/auth.actions';
 
 export const useLoginWithGoogle = () => {
-  const loginUser = useSession((state) => state.loginUser);
+  const loginUser = useAuth((state) => state.loginUser);
 
   const { mutate, isPending } = useMutation({
     mutationFn: loginWithGoogle,
-    onSuccess: (res) => {
-      loginUser(res.data.user);
+    onSuccess: (user) => {
+      loginUser(user);
     },
   });
 

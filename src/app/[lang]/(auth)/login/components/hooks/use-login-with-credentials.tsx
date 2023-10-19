@@ -2,22 +2,22 @@
 
 import { useMutation } from '@tanstack/react-query';
 
-import { useSession } from '@/store/client/current-user.store';
-
-import { loginWithCredentials } from '@/services/client/auth';
+import { useAuth } from '@/store/client/use-auth.store';
+import { loginWithCredentials } from '@/actions/auth.actions';
 
 export const useLoginWithCredentials = () => {
-  const loginUser = useSession((state) => state.loginUser);
+  const loginUser = useAuth((state) => state.loginUser);
 
-  const { mutate, isPending } = useMutation({
+  const { mutate, isPending, error } = useMutation({
     mutationFn: loginWithCredentials,
-    onSuccess: (res) => {
-      loginUser(res.data.user);
+    onSuccess: (user) => {
+      loginUser(user);
     },
   });
 
   return {
     loginWithCredentials: mutate,
     isPending,
+    error,
   };
 };
