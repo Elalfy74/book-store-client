@@ -1,0 +1,19 @@
+{
+  "mainHeader": {
+    "actions": {
+      "login": "دخول",
+      "signUp": "تسجيل"
+    },
+    "nav": {
+      "accessories": "الإكسسوارات",
+      "books": "كل الكتب",
+      "offers": "العروض"
+    },
+    "title": "كتبي"
+  },
+  "topHeader": {
+    "discount": "تابعنا واحصل على فرصة الفوز بخصم ۳۰%",
+    "followUs": "تابعنا",
+    "phone": "۲۰۱۰۹۹۰۰۷۵۲۲+"
+  }
+}

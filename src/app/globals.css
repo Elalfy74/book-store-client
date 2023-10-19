@@ -1,0 +1,18 @@
+@tailwind components;
+@tailwind utilities;
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  all: unset;
+  cursor: pointer;
+}
+
+a,
+button,
+label {
+  text-transform: capitalize !important;
+}
